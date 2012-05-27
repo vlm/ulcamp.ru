@@ -43,7 +43,14 @@ img {
 
 <div class="place">
 <h3>Арт-пропаганда</h3>
+
+<div id="ymaps-map-artprop" style="width: 350px; height: 300px;"></div>
+<script type="text/javascript">function fid_artprop(ymaps) {var map = new ymaps.Map("ymaps-map-artprop", {center: [48.399240771163946, 54.311532870681255], zoom: 13, type: "yandex#map"});
+map.geoObjects.add(new ymaps.Placemark([48.399251, 54.31125], {balloonContent: "Арт-пропаганда"}, {preset: "twirl#redDotIcon"}));
+return map; }</script>
+
 Здание «Межрегионгаз», ул. Кузнецова, 5а.
+
 <p>Владелец помещения: Культурный центр «Арт-пропаганда», ответственный — Тихонова Екатерина.
 <p>Вместимость: 35 человек.
 <p>Инфраструктура: зал, санузел, подсобное помещение. Есть возможность попить чай.
@@ -59,8 +66,11 @@ img {
 
 <div class="place">
 <h3>Echo</h3>
+<div id="ymaps-map-echo" style="width: 350px; height: 300px;"></div>
 
-<p>
+<script type="text/javascript">function fid_echo(ymaps) {var map = new ymaps.Map("ymaps-map-echo", {center: [48.397833178914695, 54.32143658649117], zoom: 13, type: "yandex#map"});
+map.geoObjects.add(new ymaps.Placemark([48.397607, 54.321896], {balloonContent: "@EchoRussia HQ"}, {preset: "twirl#redDotIcon"}));
+return map; }</script>
 Адрес: 2-й переулок Мира, 21.
 
 <p>
@@ -83,9 +93,14 @@ Cell: +7 (937) 873 7378<br>
 </div>
 
 <div class="place">
-<h3>СимбирСофт, Meeting Room</h3>
+<h3>СимбирСофт</h3>
 
-<p>
+<div id="ymaps-map-simbirsoft" style="width: 350px; height: 300px;"></div>
+<script type="text/javascript">function fid_simbirsoft(ymaps) {var map = new ymaps.Map("ymaps-map-simbirsoft", {center: [48.38432633068845, 54.333729367886974], zoom: 13, type: "yandex#map"});
+map.geoObjects.add(new ymaps.Placemark([48.38424, 54.333479], {balloonContent: "СимбирСофт"}, {preset: "twirl#redDotIcon"}));
+return map;
+};</script>
+
 Адрес: пр-т Нариманова д.&nbsp;1, строение 2 (здание «СМАРТС»), 3 этаж, каб. 32.
 
 <p>
@@ -110,6 +125,13 @@ Work: 44-66-91 (22)
 
 <div class="place">
 <h3>УлГТУ</h3>
+<div id="ymaps-map-ulstu" style="width: 350px; height: 300px;"></div>
+
+<script type="text/javascript">function fid_ulstu(ymaps) {var map = new ymaps.Map("ymaps-map-ulstu", {center: [48.38817899067339, 54.35276792367944], zoom: 13, type: "yandex#map"});
+map.geoObjects.add(new ymaps.Placemark([48.388013, 54.352011], {balloonContent: "Корпуса УлГТУ"}, {preset: "twirl#redDotIcon"}));
+return map;
+};</script>
+
 Ульяновский государственный технический университет располагает обширным аудиторным фондом для проведения семинаров, конференций и встреч.
 В УлГТУ вход на мероприятия свободный. Найти помещение для любого формата встреч достаточно просто.
 
@@ -146,6 +168,30 @@ Work: 44-66-91 (22)
 
 
 </div>
+
+<script>
+function fids(ymaps) {
+    var mark = function(map) {
+        var strokeOpt = {strokeColor: "ff0000", strokeWidth: 5, strokeOpacity: 1, fillOpacity: 0.8, fillColor: "ff0000"}
+        map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid"]));
+
+        map.geoObjects.add(new ymaps.Polygon([[[48.39904765211482, 54.31094317436259], [48.3997235687866, 54.31150777740209], [48.39950899206539, 54.31159560382887], [48.398843804229685, 54.311024728615145], [48.39904765211482, 54.31094317436259]]], {balloonContent: "Арт-пропаганда"}, strokeOpt));
+
+        map.geoObjects.add(new ymaps.Polygon([[[48.398069213307934, 54.32178153424098], [48.397929738439124, 54.32169372964031], [48.39779026357041, 54.32174703960523], [48.39791900960322, 54.32183797997752], [48.398069213307934, 54.32178153424098]]], {balloonContent: "@EchoRussia HQ"}, strokeOpt));
+
+        map.geoObjects.add(new ymaps.Polygon([[[48.38436924603266, 54.33340960070591], [48.38417612698361, 54.33335944092799], [48.384047380950825, 54.33356007969652], [48.38422977116385, 54.33360396928517], [48.38436924603266, 54.33340960070591]]], {balloonContent: "СимбирСофт"}, strokeOpt));
+
+        map.geoObjects.add(new ymaps.Polygon([[[48.38696663219848, 54.35233549813255], [48.38709537823124, 54.35221015652872], [48.38928406078743, 54.35298726824969], [48.38918750126293, 54.35309380660609], [48.38696663219848, 54.35233549813255]]], {balloonContent: "3-й учебный корпус УлГТУ"}, strokeOpt));
+    }
+    mark(fid_artprop(ymaps));
+    mark(fid_echo(ymaps));
+    mark(fid_simbirsoft(ymaps));
+    mark(fid_ulstu(ymaps));
+}
+</script>
+
+<script type="text/javascript" src="http://api-maps.yandex.ru/2.0/?coordorder=longlat&load=package.full&wizard=constructor&lang=ru-RU&onload=fids"></script>
+<div style="clear: both; margin: 20px auto 0; text-align: center;"><a href="http://api.yandex.ru/maps/tools/constructor/?lang=ru-RU" target="_blank" style="color: #1A3DC1; font: 13px Arial,Helvetica,sans-serif;">Создано с помощью инструментов Яндекс.Карт</a></div>
 
 </body>
 </html>
