@@ -166,6 +166,40 @@ return map;
 <a href="http://vk.com/hiber">http://vk.com/hiber</a>
 </div>
 
+<div class="place">
+<h3>Undev</h3>
+
+<div id="ymaps-map-undev" style="width: 350px; height: 300px;"></div>
+<script type="text/javascript">
+    function fid_undev(ymaps) {
+        var map = new ymaps.Map(
+                "ymaps-map-undev", {
+                    center: [48.377683, 54.327278],
+                    zoom: 13,
+                    type: "yandex#map"
+                }
+        );
+    map.geoObjects.add(new ymaps.Placemark([48.377683, 54.327278],
+                                            {balloonContent: "Undev"},
+                                            {preset: "twirl#redDotIcon"})
+    );
+    return map;
+    }
+</script>
+
+Адресс: ул. Некрасова, 16.
+
+<p>Компания Undev предлагает свой конференц-зал для проведения докладов, семинаров, конференций и встреч.
+<p>Вместимость: 50 человек.
+<p>Оснащение: проектор, маркерная доска, видео-панели.
+<p>
+    <img src="images/undev-1.jpg" width="300" height="200">
+<p>
+    <img src="images/undev-2.jpg" width="300" height="200">
+<p>
+    Контактное лицо:<br>
+    <b>Александр Афанасьев</b><br>
+    Cell: +7 905 036 0126<br>
 
 </div>
 
@@ -182,11 +216,14 @@ function fids(ymaps) {
         map.geoObjects.add(new ymaps.Polygon([[[48.38436924603266, 54.33340960070591], [48.38417612698361, 54.33335944092799], [48.384047380950825, 54.33356007969652], [48.38422977116385, 54.33360396928517], [48.38436924603266, 54.33340960070591]]], {balloonContent: "СимбирСофт"}, strokeOpt));
 
         map.geoObjects.add(new ymaps.Polygon([[[48.38696663219848, 54.35233549813255], [48.38709537823124, 54.35221015652872], [48.38928406078743, 54.35298726824969], [48.38918750126293, 54.35309380660609], [48.38696663219848, 54.35233549813255]]], {balloonContent: "3-й учебный корпус УлГТУ"}, strokeOpt));
+
+        map.geoObjects.add(new ymaps.Polygon([[[48.37777838490295,54.327155060874674], [48.37791785977174,54.327280479236244], [48.37762818119811,54.327374542752075], [48.37748870632935,54.32724285376938], [48.37777838490295,54.327155060874674]]], {balloonContent: "3-й учебный корпус УлГТУ"}, strokeOpt));
     }
     mark(fid_artprop(ymaps));
     mark(fid_echo(ymaps));
     mark(fid_simbirsoft(ymaps));
     mark(fid_ulstu(ymaps));
+    mark(fid_undev(ymaps));
 }
 </script>
 
