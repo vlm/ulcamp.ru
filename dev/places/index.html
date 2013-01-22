@@ -70,6 +70,31 @@ Cell: +7 (937) 873 7378<br>
 </div>
 
 <div class="place">
+<h3>Креативная разработка</h3>
+
+<div id="ymaps-map-cdev" style="width: 350px; height: 300px;"></div>
+<script type="text/javascript">function fid_cdev(ymaps) {var map = new ymaps.Map("ymaps-map-cdev", {center: [48.396958595999997, 54.334477821], zoom: 13, type: "yandex#map"});
+map.geoObjects.add(new ymaps.Placemark([48.396958595999997, 54.334477821], {balloonContent: "Креативная разработка"}, {preset: "twirl#redDotIcon"}));
+return map; }</script>
+
+Адрес: Красноармейская, 111
+
+<p>Офис компании "Креативная разработка" (Red, Ecwid HQ) будет обрадован проведению в его конференц-зале встреч UlCAMP::Dev. Для этого он готов предложить до 40 мягких стульев (+ десяток немягких), большой стол, проектор, акустику домашнего кинотеатра и микрофон, открытую сеть WiFi с широкополосным доступом в интернет, уайтборд, кухня для трапез и много других удобств включая два санузла на этаже и гардероб. Но, вас запишут на входе.
+
+<p>
+<img src="images/cdev-1-300.jpg" width="300" height="225">
+<p>
+<img src="images/cdev-2-300.jpg" width="300" height="225">
+
+<p>
+Согласовать время и формат проведения мероприятия следует с:<br>
+— Николаем</br>
+<a href="http://fb.com/tehclaus">fb.com/tehclaus</a> +79603606064<br>
+— Максимом<br>
+<a href="http://fb.com/max.agafonov">fb.com/max.agafonov</a> +79053490989<br>
+</div>
+
+<div class="place">
 <h3>СимбирСофт</h3>
 
 <div id="ymaps-map-simbirsoft" style="width: 350px; height: 300px;"></div>
@@ -84,10 +109,10 @@ return map;
 Компания ООО «СимбирСофт» располагает отличным офисным помещением для проведения докладов, семинаров и встреч. Помещение Meeting Room рассчитано на 25 человек, оснащено компьютером, видеопроектором, экраном, звуковыми колонками, микрофоном и доской для записей, а также столами и стульями для размещения докладчиков и гостей.
 
 <p>
-<img src="images/simbirsoft-1-300.jpg" width="300" height="225">
+<img src="images/simbirsoft-1-300.jpg" width="300" height="200">
 
 <p>
-<img src="images/simbirsoft-2-300.jpg" width="300" height="225">
+<img src="images/simbirsoft-2-300.jpg" width="300" height="200">
 
 <p class="left">
 На этаже есть место для проведения кофе-брейка, санузел.<br>
@@ -186,9 +211,9 @@ function fids(ymaps) {
         var strokeOpt = {strokeColor: "ff0000", strokeWidth: 5, strokeOpacity: 1, fillOpacity: 0.8, fillColor: "ff0000"}
         map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid"]));
 
-        map.geoObjects.add(new ymaps.Polygon([[[48.39904765211482, 54.31094317436259], [48.3997235687866, 54.31150777740209], [48.39950899206539, 54.31159560382887], [48.398843804229685, 54.311024728615145], [48.39904765211482, 54.31094317436259]]], {balloonContent: "Арт-пропаганда"}, strokeOpt));
-
         map.geoObjects.add(new ymaps.Polygon([[[48.398069213307934, 54.32178153424098], [48.397929738439124, 54.32169372964031], [48.39779026357041, 54.32174703960523], [48.39791900960322, 54.32183797997752], [48.398069213307934, 54.32178153424098]]], {balloonContent: "@EchoRussia HQ"}, strokeOpt));
+
+        map.geoObjects.add(new ymaps.Polygon([[[48.396771108999999,54.334609487000002],[48.396792566999999,54.334346154999999],[48.397146618999997,54.334346154999999],[48.397125160999998,54.334596947000001]]], {balloonContent: "Креативная разработка"}, strokeOpt));
 
         map.geoObjects.add(new ymaps.Polygon([[[48.38436924603266, 54.33340960070591], [48.38417612698361, 54.33335944092799], [48.384047380950825, 54.33356007969652], [48.38422977116385, 54.33360396928517], [48.38436924603266, 54.33340960070591]]], {balloonContent: "СимбирСофт"}, strokeOpt));
 
@@ -196,8 +221,8 @@ function fids(ymaps) {
 
         map.geoObjects.add(new ymaps.Polygon([[[48.37777838490295,54.327155060874674], [48.37791785977174,54.327280479236244], [48.37762818119811,54.327374542752075], [48.37748870632935,54.32724285376938], [48.37777838490295,54.327155060874674]]], {balloonContent: "Undev"}, strokeOpt));
     }
-    mark(fid_artprop(ymaps));
     mark(fid_echo(ymaps));
+    mark(fid_cdev(ymaps));
     mark(fid_simbirsoft(ymaps));
     mark(fid_ulstu(ymaps));
     mark(fid_undev(ymaps));
